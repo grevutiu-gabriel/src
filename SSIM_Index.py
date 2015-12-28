@@ -19,6 +19,11 @@ __url__ = 'http://helderc.net'
 
 import numpy as np
 import scipy.ndimage
+from scipy.ndimage import imread
+
+
+im1=imread('../../mountain/5474.jpg', flatten=True)
+im2=imread('../../mountain/1.jpg', flatten=True)
 
 
 def compute_ssim(im1, im2, l):
@@ -83,6 +88,7 @@ def compute_ssim(im1, im2, l):
 
     # return MSSIM
     index = np.mean(ssim_map)
+    print index
 
     return index
 
@@ -101,3 +107,5 @@ def gauss_2d(shape=(3, 3), sigma=0.5):
     if sumh != 0:
         h /= sumh
     return h
+
+compute_ssim(im1, im2, 1)
